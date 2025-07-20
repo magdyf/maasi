@@ -33,35 +33,16 @@ const SignupForm = () => {
     );
   };
 
-  const handleFinalSubmit = async () => {
-    try {
-      const res = await fetch('/api/signup', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          email,
-          interests: selectedInterests.join(', '),
-        }),
-      });
-      if (res.ok) {
-        alert('Thank you for signing up! We\'ll keep you updated.');
-        setEmail('');
-        setSelectedInterests([]);
-        setShowInterests(false);
-      } else {
-        const data = await res.json();
-        alert(data.error || 'Signup failed.');
-      }
-    } catch (error) {
-      alert('An error occurred. Please try again.');
-    }
+  const handleFinalSubmit = () => {
+    console.log('Email:', email);
+    console.log('Interests:', selectedInterests);
+    // Here you would typically send the data to your backend
+    alert('Thank you for signing up! We\'ll keep you updated.');
   };
 
 
   return (
-    <section className="py-16 bg-white">
+    <section className="py-16 bg-white relative overflow-hidden">
       <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold text-black mb-4">Sign up to be notified</h2>

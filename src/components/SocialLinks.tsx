@@ -35,7 +35,7 @@ const SocialLinks = () => {
 
 
   return (
-    <section className="py-16 bg-gray-50">
+    <section className="py-16 bg-gray-50 relative overflow-hidden">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <h2 className="text-3xl font-bold text-gray-900 mb-4">Stay Updated</h2>
         <p className="text-gray-600 mb-12">Follow us for updates, behind-the-scenes content, and community highlights</p>

@@ -12,7 +12,7 @@ const Hero = () => {
       setCurrentVideo((prev) => (prev + 1) % videoFiles.length);
     }, 6000); // Change video every 6 seconds
     return () => clearInterval(interval);
-  }, [videoFiles.length]);
+  }, [videoFiles.length]); 
 
   return (
     <section className="pt-24 pb-16 relative overflow-hidden">
@@ -25,7 +25,7 @@ const Hero = () => {
           loop
           muted
           playsInline
-          style={{ opacity: 0.25, background: 'black' }}
+          style={{ opacity: 0.25, background: 'white' }}
         />
       </div>
       <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">

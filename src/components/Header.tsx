@@ -24,6 +24,12 @@ const Header = () => {
           {/* Desktop/Tablet Nav */}
           <nav className="hidden md:flex items-center space-x-8 mx-auto">
             <a
+              href="/"
+              className="text-gray-700 hover:text-orange-500 transition-colors duration-200 font-medium"
+            >
+              Home
+            </a>
+            <a
               href="about"
               className="text-gray-700 hover:text-orange-500 transition-colors duration-200 font-medium"
             >
