@@ -25,7 +25,7 @@ export default function SupportPage() {
             />
           </div>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Maasi grows stronger with every person who believes in building genuine connections. Here's how you can help us create something beautiful together.
+            Maasi grows stronger with every person who believes in building genuine connections. Here&apos;s how you can help us create something beautiful together.
           </p>
         </div>
 
@@ -33,10 +33,10 @@ export default function SupportPage() {
         <div className="bg-white/70 p-8 rounded-2xl shadow-sm border border-gray-200 mb-12">
           <h2 className="text-3xl font-bold text-gray-900 mb-6">Your Impact Matters</h2>
           <p className="text-lg text-gray-700 leading-relaxed mb-4">
-            Maasi thrives thanks to the support of our amazing community. Every time someone finds their first friend through our platform, discovers a new favorite spot, or feels truly welcomed in Maastricht, it's because people like you believed in our mission.
+            Maasi thrives thanks to the support of our amazing community. Every time someone finds their first friend through our platform, discovers a new favorite spot, or feels truly welcomed in Maastricht, it&apos;s because people like you believed in our mission.
           </p>
           <p className="text-lg text-gray-700 leading-relaxed">
-            Together, we're not just building an app – we're creating a movement that transforms how people connect in our beautiful city.
+            Together, we&apos;re not just building an app – we&apos;re creating a movement that transforms how people connect in our beautiful city.
           </p>
         </div>
 
@@ -89,7 +89,7 @@ export default function SupportPage() {
             <div className="bg-white/70 p-6 rounded-2xl shadow-sm border border-gray-200 hover:shadow-md transition-shadow">
               <h3 className="text-xl font-semibold text-gray-900 mb-4">💡 Share Ideas</h3>
               <p className="text-gray-700 leading-relaxed mb-4">
-                Your feedback shapes Maasi's future. Help us understand what the community needs and wants to see.
+                Your feedback shapes Maasi&apos;s future. Help us understand what the community needs and wants to see.
               </p>
               <div className="space-y-2 text-sm text-gray-600">
                 <div className="flex items-center space-x-2">
