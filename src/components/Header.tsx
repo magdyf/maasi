@@ -31,12 +31,6 @@ const Header = () => {
               Home
             </a>
             <a
-              href="about"
-              className="text-gray-700 hover:text-orange-500 transition-colors duration-200 font-medium"
-            >
-              About Us
-            </a>
-            <a
               href="support"
               className="text-gray-700 hover:text-orange-500 transition-colors duration-200 font-medium"
             >
