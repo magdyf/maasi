@@ -10,9 +10,8 @@ export default function Home() {
         <div className="absolute inset-0 bg-white"></div>
         <div className="min-h-screen flex flex-col">
             <Header />
-            <main className="flex-1 flex flex-col gap-8 items-center justify-center">
+            <main className="">
             <Hero />
-            <SignupForm />
             <SocialLinks />
             </main>
             <Footer />

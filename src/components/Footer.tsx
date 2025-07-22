@@ -24,9 +24,6 @@ const Footer = () => {
             <a href="/privacy" className="text-gray-600 hover:text-orange-500 transition-colors duration-200">
               Privacy
             </a>
-            <a href="/contact" className="text-gray-600 hover:text-orange-500 transition-colors duration-200">
-              Contact
-            </a>
           </div>
           
           <div className="border-t border-gray-200 pt-8">

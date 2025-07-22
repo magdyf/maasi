@@ -1,5 +1,4 @@
 /* eslint-disable @next/next/no-html-link-for-pages */
-
 "use client";
 import React, { useState } from 'react';
 import { Menu, X } from 'lucide-react';
@@ -18,47 +17,34 @@ const Header = () => {
               className=""
             >
                 <Image src="/logo.jpeg" alt="Maasi logo" width={32} height={32} className="object-contain" />
-            
+                     
             </a>
             <span className="text-2xl font-bold text-gray-900">Maasi</span>
           </div>
-          {/* Desktop/Tablet Nav */}
-          <nav className="hidden md:flex items-center space-x-8 mx-auto">
-            <a
-              href="/"
-              className="text-gray-700 hover:text-orange-500 transition-colors duration-200 font-medium"
-            >
-              Home
-            </a>
-            <a
-              href="support"
-              className="text-gray-700 hover:text-orange-500 transition-colors duration-200 font-medium"
-            >
-              How You Can Support
-            </a>
-          </nav>
-          {/* Mobile Nav Button */}
+          
+          {/* Always visible burger menu button */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden p-2 rounded-md text-gray-600 hover:text-orange-500 hover:bg-orange-50 transition-colors duration-200"
+            className="p-2 rounded-md text-gray-600 hover:text-orange-500 hover:bg-orange-50 transition-colors duration-200"
           >
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
       </div>
-      {/* Mobile Dropdown Menu */}
+      
+      {/* Dropdown Menu */}
       {isMenuOpen && (
-        <div className="md:hidden absolute top-16 right-0 w-64 bg-white shadow-lg rounded-bl-lg border border-gray-100">
+        <div className="absolute top-16 right-0 w-64 bg-white shadow-lg rounded-bl-lg border border-gray-100">
           <div className="py-4 px-6 space-y-4">
             <a
-              href="#about"
+              href="/"
               className="block text-gray-700 hover:text-orange-500 transition-colors duration-200 font-medium"
               onClick={() => setIsMenuOpen(false)}
             >
-              About Us
+              Home
             </a>
             <a
-              href="#support"
+              href="support"
               className="block text-gray-700 hover:text-orange-500 transition-colors duration-200 font-medium"
               onClick={() => setIsMenuOpen(false)}
             >
