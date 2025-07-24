@@ -78,11 +78,33 @@ const HeroWithSignup = () => {
     );
   };
 
-  const handleFinalSubmit = () => {
-    console.log('Email:', email);
-    console.log('Interests:', selectedInterests);
-    // Here you would typically send the data to your backend
-    alert('Thank you for signing up! We\'ll keep you updated.');
+  const handleFinalSubmit = async () => {
+    try {
+      const response = await fetch('/api/signup', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          email: email,
+          interests: selectedInterests.join(', ')
+        }),
+      });
+
+      if (response.ok) {
+        alert('Thank you for signing up! We\'ll keep you updated.');
+        // Reset form and close interests menu
+        setShowInterests(false);
+        setEmail('');
+        setSelectedInterests([]);
+      } else {
+        const errorData = await response.json();
+        alert(errorData.error || 'Something went wrong. Please try again.');
+      }
+    } catch (error) {
+      console.error('Signup error:', error);
+      alert('Network error. Please check your connection and try again.');
+    }
   };
 
   return (
