@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import { Mail, ArrowRight } from 'lucide-react';
 
@@ -7,6 +7,7 @@ const HeroWithSignup = () => {
   // Video cycling logic
   const videoFiles = ["/assets/vid.mp4", "/assets/vid1.mp4", "/assets/vid2.mp4"];
   const [currentVideo, setCurrentVideo] = useState(0);
+  const videoRef = useRef<HTMLVideoElement>(null);
   
   // Signup form logic
   const [email, setEmail] = useState('');
@@ -18,12 +19,43 @@ const HeroWithSignup = () => {
     'Photography', 'Music', 'Art', 'Reading', 'Gaming', 'Fitness', 'Travel'
   ];
 
+  // iOS Safari video autoplay fix
+  const forceVideoPlay = async () => {
+    if (videoRef.current) {
+      try {
+        await videoRef.current.play();
+      } catch (error) {
+        console.log('Video autoplay failed:', error);
+      }
+    }
+  };
+
+  const handleVideoCanPlay = () => {
+    forceVideoPlay();
+  };
+
+  const handleVideoLoadedData = () => {
+    forceVideoPlay();
+  };
+
+  const handleUserInteraction = () => {
+    forceVideoPlay();
+  };
+
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentVideo((prev) => (prev + 1) % videoFiles.length);
     }, 6000); // Change video every 6 seconds
     return () => clearInterval(interval);
   }, [videoFiles.length]);
+
+  // Force play when video changes (iOS Safari fix)
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      forceVideoPlay();
+    }, 100); // Small delay to ensure video is ready
+    return () => clearTimeout(timer);
+  }, [currentVideo]);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -58,6 +90,7 @@ const HeroWithSignup = () => {
       {/* Full-screen background video */}
       <div className="absolute inset-0 w-full h-full">
         <video
+          ref={videoRef}
           key={videoFiles[currentVideo]}
           className="w-full h-full object-cover"
           src={videoFiles[currentVideo]}
@@ -65,13 +98,21 @@ const HeroWithSignup = () => {
           loop
           muted
           playsInline
+          webkitPlaysinline={true}
+          preload="metadata"
+          onCanPlay={handleVideoCanPlay}
+          onLoadedData={handleVideoLoadedData}
         />
         {/* Dark overlay for better text readability */}
         <div className="absolute inset-0 bg-black/50"></div>
       </div>
                 
       {/* Content overlay */}
-      <div className="relative z-10 min-h-screen flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 py-16">
+      <div 
+        className="relative z-10 min-h-screen flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 py-16"
+        onClick={handleUserInteraction}
+        onTouchStart={handleUserInteraction}
+      >
         <div className="max-w-4xl mx-auto text-center space-y-12">
           
           {/* Hero Content */}
